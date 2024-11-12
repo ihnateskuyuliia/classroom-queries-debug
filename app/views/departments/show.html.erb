@@ -27,12 +27,12 @@
 
   <dt>Number of courses</dt>
   <dd><%= Course.where({ :department_id => @the_department.id }).count %></dd>
-
 </dl>
 
 <hr>
 
 <h2>Courses</h2>
+
 <% a_id = @the_department.id %>
 <% matching_courses = Course.where({ :department_id => a_id }) %>
 <ul>
