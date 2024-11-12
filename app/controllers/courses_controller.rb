@@ -1,13 +1,14 @@
 class CoursesController < ApplicationController
   def index
-    @course = Course.all.order({ :created_at => :desc })
+    @courses = Course.all.order({ :created_at => :desc })
 
     render({ :template => "courses/index" })
   end
 
   def show
     the_id = params.fetch("path_id")
-    @course = Course.where({:id => the_id }).at(0)
+    matching_courses = Course.where({:id => the_id })
+    @the_course = matching_courses.at(0)
 
     render({ :template => "courses/show" })
   end
